@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿@* <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -46,5 +46,70 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html> *@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <title>Hands On Education</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="~/assets/vendors/linericon/style.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="~/assets/vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="~/assets/vendors/animate-css/animate.css">
+    <link rel="stylesheet" href="~/assets/vendors/popup/magnific-popup.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/responsive.css">
+</head>
+<body>
+
+
+
+
+    <partial name="Themes/_Navbar" />
+
+    <div class="content-wrapper">
+
+        @RenderBody()
+        <partial name="Themes/_Footer" />
+        <div class="content-backdrop fade"></div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/assets/js/popper.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/stellar.js"></script>
+    <script src="~/assets/vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="~/assets/vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="~/assets/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="~/assets/vendors/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/assets/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/assets/vendors/popup/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/assets/vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/assets/vendors/counter-up/jquery.counterup.js"></script>
+    <script src="~/assets/js/mail-script.js"></script>
+    <script src="~/assets/js/theme.js"></script>
+
+    <script src="/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo"></script>
+
+    <script src="/Identity/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
