@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/Themes/_Layout.cshtml";
+}
+
+<section>
+    <div class="container mb-5">
+        <h4>You are logged in as Admin</h4>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item"><a class="nav-link" href="/Identity/Account/Manage/Email">Master Volunteer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Identity/Account/Manage">Master Event</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Identity/Account/Manage/ChangePassword">Master Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Identity/Account/Manage/ChangePassword">Donation Settings</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-9 mb-5">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">Master Volunteer</h4>
+                    <a href="/MST_Volunteer/index" class="text-dark">Back to All Data</a>
+                </div>
+
+                <div class="mt-4 p-0">
+                    <div class="form-container">
+                     <h3 class="sticky-header mb-3 title_color">Create Volunteer Post</h3>
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label>Title</label>
+                                    <input type="text" name="first_name" placeholder="Activity Name" class="single-input" required>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label>Image</label>
+                                    <input type="file" name="first_name" class="single-input" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Location</label>
+                                    <div class="form-select" id="default-select">
+                                        <select>
+                                            <option value="">Choose Location</option>
+                                            <option value="2">Jakarta</option>
+                                            <option value="3">Bekasi</option>
+                                            <option value="4">Karawang</option>
+                                            <option value="5">Tangerang</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Volunteering Type</label>
+                                    <div class="form-select" id="default-select2">
+                                        <select>
+                                            <option value="">Choose Type</option>
+                                            <option value="2">Online</option>
+                                            <option value="3">On-Site/Offline</option>
+                                            <option value="4">Hybrid</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Start Date</label>
+                                    <input type="date" name="first_name" placeholder="Activity Name" class="single-input" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>End Date</label>
+                                    <input type="date" name="first_name" placeholder="Activity Name" class="single-input" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Held By</label>
+                                    <input type="text" name="first_name" placeholder="Organization/Company Name" class="single-input" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Volunteers Needed</label>
+                                    <input type="number" name="first_name" placeholder="Input a number" class="single-input" required>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label>Description</label>
+                                    <textarea class="single-textarea" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'" required=""></textarea>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Volunteer Criteria</label>
+                                    <textarea class="single-textarea" placeholder="Criteria" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Criteria'" required=""></textarea>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label>Benefits</label>
+                                    <textarea class="single-textarea" placeholder="Benefits" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Benefits'" required=""></textarea>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label>Hastag</label>
+                                    <input type="text" name="first_name" placeholder="Tag" class="single-input" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="genric-btn large info w-100">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .form-container {
+        max-height: 520px;
+        overflow-y: auto;
+        padding: 0px 15px 15px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .sticky-header {
+        position: sticky;
+        top: 0; 
+        padding:8px;
+        background: #fff; 
+        border-bottom: 1px solid #ddd; 
+        z-index: 10;
+    }
+</style>

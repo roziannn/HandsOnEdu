@@ -2,17 +2,14 @@
 
 namespace HandsOnEdu.Controllers
 {
-    [Route("Volunteer")]
-    public class VolunteerController : Controller
+    public class MST_VolunteerController : Controller
     {
-        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpGet("Show")]
-        public IActionResult Show()
+        public IActionResult Create()
         {
             return View();
         }
