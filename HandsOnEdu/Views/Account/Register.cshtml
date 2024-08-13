@@ -1,20 +1,70 @@
 ﻿@model HandsOnEdu.Data.Dto.RegisterDto
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/Themes/_Layout.cshtml";
+}
 
-<form asp-action="Register" method="post">
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" class="form-control" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ConfirmPassword"></label>
-        <input asp-for="ConfirmPassword" class="form-control" />
-        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Register</button>
-</form>
+<div b-loda3xthv2="" class="container">
+    <main b-loda3xthv2="" role="main" class="pb-3">
+
+        <h1>Register</h1>
+
+        <div class="row">
+            <div class="col-md-4 mb-5">
+                <form id="registerForm" method="post" novalidate="novalidate">
+                    <h2>Create a new account.</h2>
+                    <hr>
+
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="text-danger validation-summary-errors" role="alert">
+                            <ul>
+                                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                {
+                                    <li>@error.ErrorMessage</li>
+                                }
+                            </ul>
+                        </div>
+                    }
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" type="email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Email" value="">
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" type="password" data-val="true" data-val-length="The Password must be at least 6 and at max 100 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The Password field is required." id="Input_Password" maxlength="100" name="Password">
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" type="password" data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" id="Input_ConfirmPassword" name="ConfirmPassword">
+                        <span class="text-danger field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
+                    </div>
+
+                    <input name="__RequestVerificationToken" type="hidden" value="@Html.AntiForgeryToken()">
+                    <div class="py-3">Make sure your information is correct. By registering, you agree to the terms and conditions HandsOnEducation.co</div>
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+
+                </form>
+
+            </div>
+            <div class="col-md-6 col-md-offset-2">
+                <section>
+                    <h3>Use another service to register.</h3>
+                    <hr>
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">
+                                article
+                                about setting up this ASP.NET application to support logging in via external services
+                            </a>.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+    </main>
+</div>
