@@ -21,10 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Entities\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\assets\img\.DS_Store" />
     <None Include="wwwroot\assets\learnit-doc\.DS_Store" />
     <None Include="wwwroot\assets\vendors\.DS_Store" />

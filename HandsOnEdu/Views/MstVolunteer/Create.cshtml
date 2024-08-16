@@ -22,76 +22,80 @@
             <div class="col-md-9 mb-5">
                 <div class="d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Master Volunteer</h4>
-                    <a href="/MST_Volunteer/index" class="text-dark">Back to All Data</a>
+                    <a href="/MstVolunteer/index" class="text-dark">Back to All Data</a>
                 </div>
 
                 <div class="mt-4 p-0">
                     <div class="form-container">
                      <h3 class="sticky-header mb-3 title_color">Create Volunteer Post</h3>
-                        <form action="#" method="post">
+                        <form id="volunteerForm" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <label>Title</label>
-                                    <input type="text" name="first_name" placeholder="Activity Name" class="single-input" required>
+                                    <input type="text" name="Title" placeholder="Activity Name" class="single-input" required>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label>Image</label>
-                                    <input type="file" name="first_name" class="single-input" required>
+                                    <input type="text" name="ImageUrl" class="single-input" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Location</label>
                                     <div class="form-select" id="default-select">
-                                        <select>
+                                        <select name="Location">
                                             <option value="">Choose Location</option>
-                                            <option value="2">Jakarta</option>
-                                            <option value="3">Bekasi</option>
-                                            <option value="4">Karawang</option>
-                                            <option value="5">Tangerang</option>
+                                            <option value="Jakarta" name="Location">Jakarta</option>
+                                            <option value="Bekasi" name="Location">Bekasi</option>
+                                            <option value="Karawang" name="Location">Karawang</option>
+                                            <option value="Tangerang" name="Location">Tangerang</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Volunteering Type</label>
-                                    <div class="form-select" id="default-select2">
-                                        <select>
+                                    <div class="form-select"  id="default-select2">
+                                        <select name="VolunteeringType">
                                             <option value="">Choose Type</option>
-                                            <option value="2">Online</option>
-                                            <option value="3">On-Site/Offline</option>
-                                            <option value="4">Hybrid</option>
+                                            <option value="Online" name="VolunteeringType">Online</option>
+                                            <option value="On-Site/Offline" name="VolunteeringType">On-Site/Offline</option>
+                                            <option value="Hybrid" name="VolunteeringType">Hybrid</option>
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-md-12 mb-3">
+                                    <label>Post Deadline</label>
+                                    <input type="date" name="PostDeadline" placeholder="Activity Name" class="single-input" required>
+                                </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Start Date</label>
-                                    <input type="date" name="first_name" placeholder="Activity Name" class="single-input" required>
+                                    <input type="date" name="StartDate" placeholder="Activity Name" class="single-input" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>End Date</label>
-                                    <input type="date" name="first_name" placeholder="Activity Name" class="single-input" required>
+                                    <input type="date" name="EndDate" placeholder="Activity Name" class="single-input" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Held By</label>
-                                    <input type="text" name="first_name" placeholder="Organization/Company Name" class="single-input" required>
+                                    <input type="text" name="HeldBy" placeholder="Organization/Company Name" class="single-input" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Volunteers Needed</label>
-                                    <input type="number" name="first_name" placeholder="Input a number" class="single-input" required>
+                                    <input type="number" name="VolunteersNeeded" placeholder="Input a number" class="single-input" required>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label>Description</label>
-                                    <textarea class="single-textarea" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'" required=""></textarea>
+                                    <textarea class="single-textarea" name="Description" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'" required=""></textarea>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Volunteer Criteria</label>
-                                    <textarea class="single-textarea" placeholder="Criteria" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Criteria'" required=""></textarea>
+                                    <textarea class="single-textarea" name="VolunteerCriteria" placeholder="Criteria" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Criteria'" required=""></textarea>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label>Benefits</label>
-                                    <textarea class="single-textarea" placeholder="Benefits" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Benefits'" required=""></textarea>
+                                    <textarea class="single-textarea" name="Benefits" placeholder="Benefits" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Benefits'" required=""></textarea>
                                 </div>
                                 <div class="col-md-12 mb-3">
                                     <label>Hastag</label>
-                                    <input type="text" name="first_name" placeholder="Tag" class="single-input" required>
+                                    <input type="text" name="Hashtag" placeholder="Tag" class="single-input" required>
                                 </div>
                                 <div class="col-md-12">
                                     <button type="submit" class="genric-btn large info w-100">Submit</button>
@@ -104,6 +108,36 @@
         </div>
     </div>
 </section>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#volunteerForm').on('submit', function (event) {
+                event.preventDefault(); 
+
+                var formData = new FormData(this); // Create a FormData object
+                formData.append('CreatedBy', 'Admin');
+
+                $.ajax({
+                    url: '/MstVolunteer/SubmitPost', // Update this URL to match your endpoint
+                    dataType: "json",
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        alert('Form submitted successfully!');
+                        console.log(response);
+                    },
+                    error: function (xhr, status, error) {
+                        alert('An error occurred: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+
+}
 
 <style>
     .form-container {
