@@ -2,10 +2,17 @@
 
 namespace HandsOnEdu.Controllers
 {
+	[Route("Blog")]
+
 	public class BlogController : Controller
 	{
-		[HttpGet("Blog")]
 		public IActionResult Index()
+		{
+			return View();
+		}
+
+		[HttpGet("Show")]
+		public IActionResult Show()
 		{
 			return View();
 		}

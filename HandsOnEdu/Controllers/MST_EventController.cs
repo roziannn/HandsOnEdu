@@ -2,7 +2,7 @@
 
 namespace HandsOnEdu.Controllers
 {
-    public class MST_VolunteerController : Controller
+    public class MST_EventController : Controller
     {
         public IActionResult Index()
         {

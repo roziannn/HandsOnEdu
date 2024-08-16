@@ -5,52 +5,55 @@
 
 <section>
     <div class="container mb-5">
-        <h4>You loggin as Admin</h4>
+        <h2>You loggin as Admin</h2>
 
         <div>
             <hr>
             <div class="row">
                 <div class="col-md-3">
                     <ul class="nav nav-pills flex-column">
-                        <li class="nav-item"><a class="nav-link" id="email" href="/MST_Volunteer/Index">Master Volunteer</a></li>
-                        <li class="nav-item"><a class="nav-link" id="profile" href="/Identity/Account/Manage">Master Event</a></li>
-                        <li class="nav-item"><a class="nav-link" id="change-password" href="/Identity/Account/Manage/ChangePassword">Master Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" id="change-password" href="/Identity/Account/Manage/ChangePassword">Donation Settings</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" id="email" href="/AdminDashboard/Index">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" id="email" href="/MST_Volunteer/Index">Master Volunteer</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" id="profile" href="/MST_Event/Index">Master Event</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" id="change-password" href="/MST_Blog/Index">Master Blog</a></li>
+                        @*   <li class="nav-item"><a class="nav-link" id="change-password" href="/Identity/Account/Manage/ChangePassword">Donation Settings</a></li> *@
                     </ul>
-
                 </div>
                 <div class="col-md-9 mb-5">
-
-                    <h3>Change password</h3>
-
-
                     <div class="row">
-                        <div class="col-md-6">
-                            <form id="change-password-form" method="post" novalidate="novalidate">
-
-                                <div class="form-floating mb-3">
-                                    <label class="form-label" for="Input_OldPassword">Current password</label>
-                                    <input class="form-control" autocomplete="current-password" aria-required="true" placeholder="Please enter your old password." type="password" data-val="true" data-val-required="The Current password field is required." id="Input_OldPassword" name="Input.OldPassword">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="Input.OldPassword" data-valmsg-replace="true"></span>
+                        <div class="col-md-4">
+                            <div class="card text-white mb-3 rounded-0" style="max-width: 18rem; background:#4dbf1c;">
+                                <div class="card-body p-3">
+                                    <h5 class="card-title">Master Data Volunteer</h5>
+                                    <p class="card-text" style="font-size:24px;">
+                                        <i class="fa fa-calendar-o" style="font-size:24px;"></i>
+                                        39 </p>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <label class="form-label" for="Input_NewPassword">New password</label>
-                                    <input class="form-control" autocomplete="new-password" aria-required="true" placeholder="Please enter your new password." type="password" data-val="true" data-val-length="The New password must be at least 6 and at max 100 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The New password field is required." id="Input_NewPassword" maxlength="100" name="Input.NewPassword">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="Input.NewPassword" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-white mb-3 rounded-0" style="max-width: 18rem; background:#4dbf1c;">
+                                <div class="card-body p-3">
+                                    <h5 class="card-title">Master Data Event</h5>
+                                    <p class="card-text" style="font-size:24px;">
+                                        <i class="fa fa-calendar" style="font-size:24px;"></i>
+                                        75</p>
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <label class="form-label" for="Input_ConfirmPassword">Confirm new password</label>
-                                    <input class="form-control" autocomplete="new-password" aria-required="true" placeholder="Please confirm your new password." type="password" data-val="true" data-val-equalto="The new password and confirmation password do not match." data-val-equalto-other="*.NewPassword" id="Input_ConfirmPassword" name="Input.ConfirmPassword">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="Input.ConfirmPassword" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-white mb-3 rounded-0" style="max-width: 18rem; background:#4dbf1c;">
+                                <div class="card-body p-3">
+                                    <h5 class="card-title">Master Data Blog</h5>
+                                    <p class="card-text" style="font-size:24px;">
+                                        <i class="fa fa-newspaper-o" style="font-size:24px;"></i>
+                                        20</p>
                                 </div>
-                                <button type="submit" class="w-100 genric-btn info">Update password</button>
-                                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8EXzcei8wUlBrAJfLIqvbXOg0mXAGQv-bB_9ebPZxUiV4b9nMhy-GqaiFiSe99wolLiDT68Axijw8gUTguu6jDgkPG8W1r5PPyVjcUbzTHeaqJYTIkvLawuKegLn3VdaA6kECuSTekaB04QFxrVzQGvSry_LfjwQdPgrs9XsmKKtzJLKq5Jmv_zy5ZAkKp46eQ">
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </section>
