@@ -1,6 +1,9 @@
-﻿@{
+﻿@model HandsOnEdu.Models.Entities.MstVolunteeringPost
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/Themes/_Layout.cshtml";
+    var postId = Model.Id;
 }
 
 <section>
@@ -27,7 +30,7 @@
 
                 <div class="mt-4 p-0">
                     <div class="form-container">
-                     <h3 class="sticky-header mb-3 title_color">Create Volunteer Post</h3>
+                        <h3 class="sticky-header mb-3 title_color">Edit Volunteer Post</h3>
                         @await Html.PartialAsync("_MstVolunteerForm")
                     </div>
                 </div>
@@ -39,57 +42,43 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            $('#volunteerForm').on('submit', function (event) {
-                event.preventDefault(); 
+            var postId = @postId; 
 
-                var formData = new FormData(this); // Create a FormData object
-                formData.append('CreatedBy', 'Admin');
-
+            if (postId) {
                 $.ajax({
-                    url: '/MstVolunteer/SubmitPost', 
-                    dataType: "json",
-                    type: 'POST',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function (response) {
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "Form submitted successfully!",
-                            showConfirmButton: false,
-                            timer: 1500
-                        // console.log(response);
-                    }).then(() => {
-                        window.location.href = '/MstVolunteer/Index';
-                    });
+                    url: '/MstVolunteer/GetById/' + postId,
+                    type: 'GET',
+                    success: function (data) {
+                        // Populate form fields with data
+                        $('#Title').val(data.title);
+                        $('#ImageUrl').val(data.imageUrl);
+                        $('#HeldBy').val(data.heldBy);
+                        $('#VolunteersNeeded').val(data.volunteersNeeded);
 
+                        $('#PostDeadline').val(data.postDeadline);
+                        $('#StartDate').val(data.startDate);
+                        $('#EndDate').val(data.endDate);
+
+                        $('#Description').val(data.description);
+                        $('#VolunteerCriteria').val(data.volunteerCriteria);
+                        $('#Benefits').val(data.benefits);
+                        $('#Hashtag').val(data.hashtag);
+
+
+
+                        // Log the selected value
+                        console.log('Selected value:', data.location);
+
+
+                       
+
+                        console.log(data);
                     },
-                    error: function (xhr, status, error) {
-                        alert('An error occurred: ' + error);
+                    error: function (xhr) {
+                        alert(xhr.responseJSON?.message || "An error occurred while fetching the data.");
                     }
                 });
-            });
+            }
         });
     </script>
-
 }
-
-@* <style>
-    .form-container {
-        max-height: 520px;
-        overflow-y: auto;
-        padding: 0px 15px 15px 15px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
-
-    .sticky-header {
-        position: sticky;
-        top: 0; 
-        padding:8px;
-        background: #fff; 
-        border-bottom: 1px solid #ddd; 
-        z-index: 10;
-    }
-</style> *@

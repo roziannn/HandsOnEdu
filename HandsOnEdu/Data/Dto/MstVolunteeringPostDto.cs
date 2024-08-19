@@ -1,18 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HandsOnEdu.Models.Entities
+namespace HandsOnEdu.Data.Dto
 {
-    [Table("MST_VolunteeringPost")]
-
-    public class MstVolunteeringPost
+    public class MstVolunteeringPostDto
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string? NewId { get; set; }
+        public string NewId { get; set; }
         public string Title { get; set; }
-        public string ImageUrl { get; set; } 
+        public string ImageUrl { get; set; }
         public string Location { get; set; }
         public string VolunteeringType { get; set; }
         public DateTime PostDeadline { get; set; }
@@ -28,6 +23,7 @@ namespace HandsOnEdu.Models.Entities
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
+        public string Status { get; set; }
 
     }
 }

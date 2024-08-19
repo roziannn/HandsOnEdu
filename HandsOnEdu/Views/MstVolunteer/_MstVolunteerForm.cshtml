@@ -1,0 +1,92 @@
+﻿<form id="volunteerForm" method="post" enctype="multipart/form-data">
+    <div class="card p-3 mb-3">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <label>Title</label>
+                <input type="text" id="Title" name="Title" placeholder="Activity Name" class="single-input" required>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label>Image</label>
+                <input type="text" id="ImageUrl" name="ImageUrl" class="single-input" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Held By</label>
+                <input type="text" id="HeldBy" name="HeldBy" placeholder="Organization/Company Name" class="single-input" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Volunteering Type</label>
+                <div class="form-select" id="default-select2">
+                    <select id="VolunteeringType" name="VolunteeringType">
+                        <option value="">Choose Type</option>
+                        <option value="Online" name="VolunteeringType">Online</option>
+                        <option value="On-Site/Offline" name="VolunteeringType">On-Site/Offline</option>
+                        <option value="Hybrid" name="VolunteeringType">Hybrid</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-12 mb-3">
+                <label>Volunteers Needed</label>
+                <input id="VolunteersNeeded" type="number" name="VolunteersNeeded" placeholder="Input a number" class="single-input" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-3 mb-3">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Location</label>
+                <div class="form-select">
+                    <select id="Location" name="Location">
+                        <option value="">Choose Location</option>
+                        <option value="Jakarta">Jakarta</option>
+                        <option value="Bekasi">Bekasi</option>
+                        <option value="Karawang">Karawang</option>
+                        <option value="Tangerang">Tangerang</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Post Deadline</label>
+                <input id="PostDeadline" type="date" name="PostDeadline" placeholder="Activity Name" class="single-input" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Start Date</label>
+                <input id="StartDate" type="date" name="StartDate" placeholder="Activity Name" class="single-input" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>End Date</label>
+                <input id="EndDate" type="date" name="EndDate" placeholder="Activity Name" class="single-input" required>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-3 mb-3">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <label>Description</label>
+                <textarea id="Description" class="single-textarea" name="Description" placeholder="Description" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Description'" required=""></textarea>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Volunteer Criteria</label>
+                <textarea id="VolunteerCriteria" class="single-textarea" name="VolunteerCriteria" placeholder="Criteria" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Criteria'" required=""></textarea>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Benefits</label>
+                <textarea id="Benefits" class="single-textarea" name="Benefits" placeholder="Benefits" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Benefits'" required=""></textarea>
+            </div>
+            <div class="col-md-12 mb-3">
+                <label>Hashtag</label>
+                <input id="Hashtag" type="text" name="Hashtag" placeholder="Tag" class="single-input" required>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="row">
+
+    <div class="col-md-12">
+        <button type="submit" class="genric-btn large info w-100">Submit</button>
+    </div>
+    </div>
+</form>

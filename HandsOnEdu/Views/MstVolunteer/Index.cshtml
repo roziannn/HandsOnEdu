@@ -19,62 +19,100 @@
                     </ul>
                 </div>
                 <div class="col-md-9 mb-5">
-                        <div class="d-flex justify-content-between align-items-center w-100">
-                            <h4 class="mb-0">Master Volunteer</h4>
-                        <a href="/MstVolunteer/Create">
-                            Tambah
-                            @* <button class="genric-btn medium info">Create New</button> *@
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <h4 class="mb-0">Master Volunteer</h4>
+                        <a class="genric-btn medium info" href="/MstVolunteer/Create">
+                            Create New
                         </a>
 
-                        </div>
-                        <div class="mt-4 p-0">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                        <th>ID Voluntering</th>
-                                        <th>Activity Name</th>
-                                            <th>Organization</th>
-                                            <th>Published</th>
-                                            <th>Status</th>
-                                            <th style="width: 10%">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    @for (int i = 0; i < 5; i++)
+                    </div>
+                    <div class="mt-4 p-0">
+                        <div class="table-responsive" id="volunteerTable">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 5%">No.</th>
+                                        <th style="width: 20%">Title</th>
+                                        <th>Organization</th>
+                                        <th>Location</th>
+                                        <th>Deadline</th>
+                                        <th>Status</th>
+                                        <th style="width: 10%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @* @for (int i = 0; i < 5; i++)
                                     {
 
-                                        <tr>
-                                            <td>
-                                                #72817ASYYD
-                                            </td>
-                                            <td>
-                                                Homeless Shelter Helpers: Meal Prep and Serve
-                                            </td>
-                                            <td>
-                                                XYZ Foundation
-                                            </td>
-                                            <td>
-                                                1 August 2024
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-success text-light">Active</span>
-                                            </td>
-                                            <td>
-                                                <a href="/MST_Volunteer/Show">Detail</a>
-                                            </td>
-                                        </tr>
-                                    }
-                                    </tbody>
-                                </table>
-
-                            </div>
+                                    <tr>
+                                    <td>
+                                    #72817ASYYD
+                                    </td>
+                                    <td>
+                                    Homeless Shelter Helpers: Meal Prep and Serve
+                                    </td>
+                                    <td>
+                                    XYZ Foundation
+                                    </td>
+                                    <td>
+                                    1 August 2024
+                                    </td>
+                                    <td>
+                                    <span class="badge bg-success text-light">Active</span>
+                                    </td>
+                                    <td>
+                                    <a href="/MST_Volunteer/Show">Detail</a>
+                                    </td>
+                                    </tr>
+                                    } *@
+                                </tbody>
+                            </table>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            function loadData() {
+                $.ajax({
+                    url: '/MstVolunteer/GetAll',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        var tableBody = $('#volunteerTable tbody');
+                        var i = 1;
+                        tableBody.empty();
 
+                        $.each(data, function (index, item) {
+                            var statusClass = item.status === 'Active' ? 'bg-success text-light' : 'bg-danger text-light';
+                            var row = `
+                                    <tr>
+                                        <td>${i}</td>
+                                        <td>${item.title}</td>
+                                        <td>${item.heldBy}</td>
+                                        <td>${item.location}</td>
+                                        <td>${item.postDeadline}</td>
+                                        <td><span class="badge ${statusClass}">${item.status}</span></td>
+                                        <td><a href="/MstVolunteer/Detail/${item.id}">Detail</a></td>
+                                    </tr>
+                                `;
+                            tableBody.append(row);
+                            i++;
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error loading data:', error);
+                    }
+                });
+            }
+
+            loadData();
+        });
+    </script>
+}
 

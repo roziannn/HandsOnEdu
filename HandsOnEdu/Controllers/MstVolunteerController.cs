@@ -20,6 +20,40 @@ namespace HandsOnEdu.Controllers
             return View();
         }
 
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            var products = await _mstVolunteerPostService.GetAll();
+            return Ok(products);
+        }
+
+        [HttpGet("Detail/{id}")]
+        public async Task<IActionResult> Detail(int id)
+        {
+            var data = await _context.MstVolunteeringPosts.FindAsync(id);
+
+            if (data == null)
+            {
+                return NotFound();
+            }
+
+            return View(data);
+        }
+
+        [HttpGet("GetById/{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var data = await _mstVolunteerPostService.GetById(id);
+
+            if (data == null)
+            {
+                return NotFound();
+            }
+
+
+            return Json(data); 
+        }
+
 
         [HttpGet("Create")]
         public IActionResult Create()
@@ -46,10 +80,6 @@ namespace HandsOnEdu.Controllers
             }
         }
 
-        [HttpGet("Show")]
-        public IActionResult Show()
-        {
-            return View();
-        }
+       
     }
 }
